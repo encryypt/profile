@@ -20,10 +20,10 @@ const jimp = require ("jimp")
 const Canvas = require("canvas")
 const pretty = require("pretty-ms")
 const client = new Discord.Client()
-const prefix = '^';
+const prefix = '-';
 const fs = require('fs');
-const devs = ["333850936373936129"]
-const ids = ["333850936373936129"]
+const devs = ["516576049778130954"]
+const ids = ["516576049778130954"]
 client.on('ready', () => {
 console.log('Online Now')  
 })
@@ -50,7 +50,7 @@ let credits;if(!res) credits = 0;else credits = res.credits;
 let resOfAuthor = await SQLite.get(`SELECT * FROM profileSystem WHERE id = '${msg.author.id}'`)
 if(!resOfAuthor) SQLite.run(`INSERT INTO profileSystem VALUES ('${msg.author.id}', 1, 0, ${xp}, 0, 0, 0, "Type ${prefix}setinfo to set info"`)
 let creditsOfAuthor = resOfAuthor.credits;
-if(!args[2]){msg.channel.send(`**${mention.username} | Balance is \`$${credits}\`**`)}else if(mentionn && args[2]) {
+if(!args[2]){msg.channel.send(`**:bank: | ${mention.username} , your account balance is \`$${credits}\`**`)}else if(mentionn && args[2]) {
 if(args[2] < 1) return msg.channel.send(`**:x: | Error**`);if(mention.bot) return msg.channel.send(`**:x: | Error**`);if(mentionn.id === msg.author.id) return msg.channel.send(`**:x: | Error**`);
 if(args[2].includes("-")) return msg.channel.send(`**:x: | Error**`);if(args[2].includes(".")) return msg.channel.send(`**:x: | Error**`);
 let resOfMen = await SQLite.get(`SELECT * FROM profileSystem WHERE id = '${mentionn.id}'`);
@@ -68,7 +68,7 @@ ctx.font = "sans-serif";ctx.fontSize = '100px';ctx.fillStyle = "#ffffff";
 msg.channel.send(`**${msg.author.username}, You Will Trans \`$${args[2]}\` To ${mentionn}\nIf You Want To Complete Trans Type: \`${num}\`**`).then(essss => {
 ctx.fillText(num, canvas.width / 2.4, canvas.height / 1.7);
 msg.channel.sendFile(canvas.toBuffer()).then(m => {msg.channel.awaitMessages(r => r.author.id === msg.author.id, { max: 1, time: 20000, errors:['time'] }).then(collected => {if(collected.first().content === num) {
-client.channels.get("646641689393365022").send(`**\nتم التحول من : ${msg.author.username} | (ID: \`${msg.author.id}\`)\nتم التحول الي : ${mentionn.username} | (ID: \`${mentionn.id}\`)\nالمبلغ : \`$${args[2]}\`\n**`);
+client.channels.get("725620863612747786").send(`**\nتم التحول من : ${msg.author.username} | (ID: \`${msg.author.id}\`)\nتم التحول الي : ${mentionn.username} | (ID: \`${mentionn.id}\`)\nالمبلغ : \`$${args[2]}\`\n**`);
 msg.channel.send(`**:moneybag: | ${msg.author.username} has transferred \`${num}\`  to ${msg.author.id}**`);
 mention.send(`**:money_with_wings: | Transfer Receipt** \`\`\`You Have Received \`$${args[2]}\` From User ${msg.author.username}; (ID (${msg.author.id})\`\`\``);
 m.delete();
@@ -154,10 +154,10 @@ let leaderboard = await SQLite.all(`SELECT * FROM profileSystem ORDER BY xp DESC
 ctx.font = "18px Arial";ctx.fontSize = '18px';ctx.fillStyle = "#FFFFFF";ctx.textAlign = "center";////RANK
 for(var i = 0;i<leaderboard.length;i++) {if(leaderboard[i].id == getvalueof.id) {ctx.fillText(`#${i+1}`, 52, 147)}}///RANK
 ctx.font = "14px Arial";ctx.fontSize = '14px';ctx.fillStyle = '#FFFFFF'; ctx.textAlign = "center";ctx.fillText(`$${res.credits}`, 248 , 147)////credits
-ctx.font = "15px Arial";ctx.fontSize = '15px'; ctx.fillStyle = "#FFFFFF"; ctx.textAlign = "center";ctx.fillText(`${res.xp}`, 130, 270)////XP
+ctx.font = "15px Arial";ctx.fontSize = '15px'; ctx.fillStyle = "#FFFFFF"; ctx.textAlign = "center";ctx.fillText(`${res.xp}`, 160, 270)////XP
 ctx.font = "32px Arial";ctx.fontSize = '32px';ctx.fillStyle = "#FFFFFF";ctx.textAlign = "center";ctx.fillText(`${res.level}`, 248, 95)
 ctx.font = "24px Arial";ctx.fontSize = "24px";ctx.fillStyle = "#FFFFFF";ctx.textAlign = "center";ctx.fillText(`${res.rep}`, 65,95);///REPS
-ctx.font = "12px Arial";ctx.fontSize = "12px";ctx.fillStyle = "#FFFFFF";ctx.textAlign = "center";ctx.fillText(`${res.info}`,150,155)
+ctx.font = "12px Arial";ctx.fontSize = "12px";ctx.fillStyle = "#FFFFFF";ctx.textAlign = "center";ctx.fillText(`${res.info}`,150,166)
 let Avatar = Canvas.Image;let ava = new Avatar;
 ava.src = buf;ctx.beginPath(); ctx.arc(153.5, 85.5, 50, 0, Math.PI*2, true); ctx.clip();ctx.drawImage(ava, 100, 34, 110, 110);
 message.channel.startTyping();message.channel.sendFile(canvas.toBuffer());message.channel.stopTyping();});});}})
