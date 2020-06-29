@@ -165,4 +165,4 @@ message.channel.startTyping();message.channel.sendFile(canvas.toBuffer());messag
 
 
 
-client.login('')
+client.login('NjY2NDY1MTg5NTA3NjI5MDc4.XvlO-A.oJQeMYSHJT80uKgx1JrBja_2nkg')
